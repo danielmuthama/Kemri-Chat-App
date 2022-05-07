@@ -17,7 +17,7 @@ const io = socketio(server);
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const botName = 'Admin: '
+const botName = 'Admin Bot: '
 ' '
 
 // Run when client connects
@@ -39,7 +39,7 @@ io.on('connection', socket => {
             );
 
         // Send users and room info
-        io.to(user.room).emit('roomUsers', {
+        io.to(user.room).emit('roomUsers:  ', {
             room: user.room,
             users: getRoomUsers(user.room)
         });
