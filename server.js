@@ -17,8 +17,8 @@ const io = socketio(server);
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const botName = 'Admin Bot: '
-' '
+const botName = 'Admin Bot:'
+' ';
 
 // Run when client connects
 io.on('connection', socket => {
@@ -39,7 +39,7 @@ io.on('connection', socket => {
             );
 
         // Send users and room info
-        io.to(user.room).emit('roomUsers:  ', {
+        io.to(user.room).emit('roomUsers', {
             room: user.room,
             users: getRoomUsers(user.room)
         });
@@ -71,6 +71,6 @@ io.on('connection', socket => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3100;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
